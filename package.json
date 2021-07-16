@@ -31,7 +31,8 @@
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.1",
     "swr": "^0.5.6",
-    "yup": "^0.32.9"
+    "yup": "^0.32.9",
+    "yup-phone": "^1.2.19"
   },
   "devDependencies": {
     "@types/node": "^16.3.2",

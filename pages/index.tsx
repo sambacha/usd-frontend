@@ -5,9 +5,10 @@ import CreditCard from '../components/CreditCard'
 import { useStyletron } from 'baseui'
 import Trade from '../components/Trade'
 import { PersonalInfo } from '../components/PersonalInfo'
-import { Data } from '../lib/types'
+import { CreditCardInfo, Data } from '../lib/types'
 import { useEffect } from 'react'
 import { RequestSchema } from '../lib/schema'
+import { submitTx } from '../lib/submitTx'
 
 const PaymentForm = () => {
   const [activeKey, setActiveKey] = useState<React.Key>('0')
@@ -19,11 +20,20 @@ const PaymentForm = () => {
     amount: 100
   })
 
+  const [cardInfo, setCardInfo] = useState<CreditCardInfo>({
+    full_name: '',
+    card_data: {
+      card: '',
+      cvc: '',
+      expiryDate: ''
+    }
+  })
+
   const [isLoading, setLoading] = useState(false)
 
-  const [txID, setTxID] = useState<number>()
-
   const [enabledCount, setEnabledCount] = useState(0)
+
+  const [txResponse, setTxResponse] = useState<string>()
 
   useEffect(() => {
     if (data) {
@@ -36,15 +46,21 @@ const PaymentForm = () => {
               'Content-Type': 'application/json'
             }
           })
-            .then((res) => res.json())
-            .then((json) => {
+            .then((res) => res.text())
+            .then((res) => {
               setLoading(false)
-              setTxID(json)
+              setTxResponse(res)
             })
         }
       })
     }
   }, [data])
+
+  useEffect(() => {
+    if (cardInfo && data && txResponse && enabledCount === 2) {
+      submitTx(txResponse).then((json) => console.log(json))
+    }
+  }, [cardInfo])
 
   return (
     <Block
@@ -149,7 +165,12 @@ const PaymentForm = () => {
               }
             }}
           >
-            <CreditCard />
+            <CreditCard
+              onSubmit={(form) => {
+                setCardInfo(form)
+              }}
+              initialValues={cardInfo}
+            />
           </Tab>
         </Tabs>
       </Block>

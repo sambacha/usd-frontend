@@ -1,9 +1,9 @@
 import React from 'react'
-import { Input as BaseInput, InputProps } from 'baseui/input'
+import { Input, InputProps } from 'baseui/input'
 import { useField } from 'formik'
 import { FormControl, FormControlProps } from 'baseui/form-control'
 
-export const Input = ({
+export const FieldInput = ({
   label,
   caption,
   disabled,

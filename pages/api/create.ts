@@ -42,21 +42,7 @@ const handler: NextApiHandler = async (req, res) => {
 
     const txID = await resp1.json()
 
-    const addInfo = JSON.stringify({
-      cryptoAddress: data.eth_address,
-      userId: data.email,
-      email: data.email,
-      cur_from: 'USD',
-      cur_to: data.cur_out,
-      'send.amount': data.amount
-    })
-
-    const cfnhash = Buffer.from(sig).toString('base64')
-
-    res.status(200).send({
-      cfnhash,
-      txID
-    })
+    res.status(200).send(txID)
   } else {
     res.status(405).send('Method Not Allowed')
   }

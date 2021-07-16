@@ -6,32 +6,28 @@ import { PersonalInfoSchema } from '../lib/schema'
 import { Block } from 'baseui/block'
 import { Button } from 'baseui/button'
 import { Data } from '../lib/types'
+import { FieldInput } from './FieldInput'
 
 const EmailInput = () => {
-  const [field, meta] = useField<string>('email')
-
-  return (
-    <FormControl label="Your email address" error={meta.touched && meta.error ? meta.error : null}>
-      <Input {...field} type="email" placeholder="example@mail.com" required />
-    </FormControl>
-  )
+  return <FieldInput name="email" label="Your email address" type="email" placeholder="example@mail.com" required />
 }
 
 const EthAddressInput = () => {
-  const [field, meta] = useField<string>('eth_address')
-
   return (
-    <FormControl label="Your Ethereum address" error={meta.touched && meta.error ? meta.error : null}>
-      <Input
-        {...field}
-        type="text"
-        placeholder="0x0000000000000000000000000000000000000000"
-        required
-        maxLength={42}
-        pattern="^(0x){1}[0-9a-fA-F]{40}$"
-      />
-    </FormControl>
+    <FieldInput
+      name="eth_address"
+      label="Your Ethereum address"
+      type="text"
+      placeholder="0x..."
+      required
+      maxLength={42}
+      pattern="^(0x){1}[0-9a-fA-F]{40}$"
+    />
   )
+}
+
+const PhoneInput = () => {
+  return <FieldInput name="phone" label="Your phone number" type="tel" placeholder="+X XXX XX XX" required />
 }
 
 export const PersonalInfo = ({
@@ -49,6 +45,7 @@ export const PersonalInfo = ({
         <form onSubmit={handleSubmit}>
           <EmailInput />
           <EthAddressInput />
+          <PhoneInput />
           <Block display="grid">
             <Button type="submit" isLoading={isLoading} disabled={!isValid}>
               Submit transaction
