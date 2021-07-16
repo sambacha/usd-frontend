@@ -1,0 +1,44 @@
+{
+  "name": "usd-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manifoldfinance/usd-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manifoldfinance/usd-frontend/issues"
+  },
+  "homepage": "https://github.com/manifoldfinance/usd-frontend#readme",
+  "dependencies": {
+    "@types/styletron-engine-atomic": "^1.1.1",
+    "@types/styletron-react": "^5.0.3",
+    "@types/styletron-standard": "^2.0.2",
+    "baseui": "^9.116.3",
+    "formik": "^2.2.9",
+    "next": "^11.0.1",
+    "react": "^17.0.2",
+    "react-credit-cards": "^0.8.3",
+    "react-dom": "^17.0.2",
+    "rooks": "^5.0.3",
+    "styletron-engine-atomic": "^1.4.8",
+    "styletron-react": "^6.0.1",
+    "swr": "^0.5.6",
+    "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.2",
+    "@types/react": "^17.0.14",
+    "@types/react-credit-cards": "^0.8.1",
+    "eslint": "^7.30.0",
+    "eslint-plugin-baseui": "^9.116.3",
+    "typescript": "^4.3.5"
+  }
+}

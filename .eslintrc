@@ -1,0 +1,15 @@
+{
+  "extends": "next",
+  "plugins": ["baseui"],
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "env": {
+    "es6": true,
+    "shared-node-browser": true
+  }
+}
