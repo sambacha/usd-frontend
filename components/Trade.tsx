@@ -48,7 +48,7 @@ const Out = ({
   let { rate } = useCheckRate(debouncedValue)
 
   return (
-    <FormControl label="You get" caption={`Cryptocurrency you get (fee: ${endSelectValue?.[0]?.fee}%)`}>
+    <FormControl label="Purchased amount" caption={`You receive (fee: ${endSelectValue?.[0]?.fee}%)`}>
       <SelectAtEnd
         disabled
         inputValue={rate?.toString()}
@@ -78,8 +78,8 @@ const AmountIn = () => {
   return (
     <FormControl
       error={amountMeta.touched && amountMeta.error ? amountMeta.error : null}
-      label="You give"
-      caption={`Fiat currency you give`}
+      label="You want to buy"
+      caption={`Ammount you spend`}
     >
       <Input startEnhancer="$" {...amountField} />
     </FormControl>

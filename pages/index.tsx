@@ -79,7 +79,7 @@ const PaymentForm = () => {
           fontWeight: 'bold'
         })}
       >
-        Buy cryptocurrency with bank card
+        USDMarkets
       </Block>
       <Block
         height="calc(508px + 2rem)"
