@@ -74,13 +74,13 @@ const PaymentForm = () => {
       <Block
         as="h1"
         className={css({
-          fontSize: theme.sizing.scale800,
-          textAlign: 'center'
+          textAlign: 'center',
+          ...theme.typography.HeadingSmall,
+          fontWeight: 'bold'
         })}
       >
         Buy cryptocurrency with bank card
       </Block>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
       <Block
         height="calc(508px + 2rem)"
         width="461px"
